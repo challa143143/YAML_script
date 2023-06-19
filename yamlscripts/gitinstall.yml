@@ -1,0 +1,9 @@
+---
+- hosts: dev
+  user: dinesh
+  become: yes
+  vars:
+    pkgname: git
+  tasks:
+    - name: installing git on dev server
+      action: yum name='{{pkgname}}' state=present

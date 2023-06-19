@@ -1,0 +1,7 @@
+---
+- hosts: dev
+  become: yes
+  connection: ssh
+  tasks:
+    - name: installing httpd on dev server
+      action: yum name=httpd state=present
