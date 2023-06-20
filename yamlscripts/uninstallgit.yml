@@ -1,0 +1,9 @@
+---
+- hosts: dev
+  become: yes
+  vars:
+    packagename: git
+  tasks:
+    - name: installing git on dev server
+      action: yum name='{{packagename}}' state=absent
+
