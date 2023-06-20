@@ -1,0 +1,12 @@
+---
+- hosts: dev
+  user: dinesh
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: Install the apache web server
+    yum: pkg=httpd state=latest
+    notify: Start HTTPD
+  handlers:
+  - name: Start HTTPD
+    systemd: name=httpd state=started enabled=yes
